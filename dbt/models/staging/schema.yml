@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: customers
+
+models:
+  - name: stg_customers
+    description: Clientes limpios y tipados desde la fuente raw.
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: churn
+        tests:
+          - accepted_values:
+              values: ["yes", "no", ""]
