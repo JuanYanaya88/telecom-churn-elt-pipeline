@@ -1,0 +1,14 @@
+name: telecom_churn
+version: "1.0.0"
+profile: telecom_churn
+
+model-paths: ["models"]
+
+models:
+  telecom_churn:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts
